@@ -1,0 +1,36 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "frontend the whatsapp",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "react",
+    "html",
+    "next",
+    "sass"
+  ],
+  "author": "david israel granados elias",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "10.4.16",
+    "axios": "1.5.0",
+    "emoji-picker-react": "4.5.2",
+    "firebase": "10.4.0",
+    "next": "13.5.2",
+    "postcss": "8.4.30",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.11.0",
+    "react-image-file-resizer": "0.4.8",
+    "socket.io-client": "4.7.2",
+    "tailwindcss": "3.3.3",
+    "wavesurfer.js": "7.3.2",
+    "zego-express-engine-webrtc": "2.26.0"
+  }
+}
