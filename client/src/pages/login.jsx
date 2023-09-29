@@ -1,11 +1,34 @@
+import { CHECK_USER_ROUTE } from "@/utils/ApiRoutes";
+import { firebaseAuth } from "@/utils/FirebaseConfig";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Image from "next/image";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 function login() {
-    function handleLogin() {
-        alert("Login");
-    }
+  const router = useRouter()
+    const handleLogin = async () => {
+        const provider = new GoogleAuthProvider();
+        const {
+            user: { displayName: name, email, photoURL: profileImage },
+        } = await signInWithPopup(firebaseAuth, provider);
+        try {
+            if (email) {
+                const { data } = await axios.post(CHECK_USER_ROUTE, { email });
+                console.log({ data });
+                if (!data.status) {
+                  router.push("/onboarding")
+                }
+            }
+        } catch (error) {
+            console.log(
+                "🚀 ~ file: login.jsx:16 ~ handleLogin ~ error:",
+                error
+            );
+        }
+    };
     return (
         <div className='flex justify-center items-center bg-panel-header-background h-screen w-screen flex-col gap-6'>
             <div className='flex items-center justify-center gap-2 text-white'>
