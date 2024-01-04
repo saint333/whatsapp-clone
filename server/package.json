@@ -15,7 +15,7 @@
   "author": "david israel granados elias",
   "license": "MIT",
   "dependencies": {
-    "@prisma/client": "^5.4.1",
+    "@prisma/client": "5.7.1",
     "cors": "2.8.5",
     "crypto": "1.0.1",
     "dotenv": "16.3.1",
