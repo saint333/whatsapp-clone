@@ -2,10 +2,11 @@ import { useStateProvider } from "@/context/StateContext";
 import { calculateTime } from "@/utils/CalculateTime";
 import React from "react";
 import MessageStatus from "../common/MessageStatus";
+import ImageMessage from "./ImageMessage";
 
 export default function ChatContainer() {
   const [{ messages, currentChatUser, userInfo }, dispatch] =
-    useStateProvider();
+  useStateProvider();
 
   return (
     <div className='h-[80vh] w-full relative flex-grow overflow-auto custom-scrollbar'>
@@ -19,7 +20,7 @@ export default function ChatContainer() {
                 className={`flex ${
                   message.senderId === currentChatUser.id
                     ? "justify-start"
-                    : "justify-end"
+                    : "justify-end" 
                 }`}
               >
                 {message.type === "text" && (
@@ -45,6 +46,9 @@ export default function ChatContainer() {
                     </div>
                   </div>
                 )}
+                {
+                  message.type === 'image' && <ImageMessage message={message} />
+                }
               </div>
             ))}
           </div>
